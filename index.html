@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prof-Pitcher Test</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 Prof-Pitcher Test</h1>
+        <p>Gib ein, was dein Prof gesagt hat, und wir liefern zwei Versionen:</p>
+        
+        <form id="professor-form" role="main">
+            <label for="input-text">Was der Prof gesagt hat:</label>
+            <textarea 
+                id="input-text" 
+                name="professorText"
+                placeholder="z. B.: 'Die Interpretation dieser Thematik verlangt eine differenzierte Perspektive.'"
+                aria-describedby="input-help"
+                required
+                rows="4">
+            </textarea>
+            <div id="input-help" class="sr-only">
+                Geben Sie hier den Text Ihres Professors ein, um zwei verschiedene Versionen zu erhalten.
+            </div>
+            
+            <div class="button-group" role="group" aria-label="Übersetzungsoptionen">
+                <button 
+                    type="button" 
+                    id="genz-btn" 
+                    class="translation-btn"
+                    aria-describedby="genz-output">
+                    Sarkastisch / Gen Z 😎
+                </button>
+                <button 
+                    type="button" 
+                    id="simple-btn" 
+                    class="translation-btn"
+                    aria-describedby="simple-output">
+                    Einfach erklärt 🧠
+                </button>
+            </div>
+        </form>
+
+        <div class="translations" id="results" aria-live="polite">
+            <div class="card">
+                <h2>Sarkastisch / Gen Z 😎</h2>
+                <p id="genz-output" class="output" aria-label="Gen Z Version"></p>
+            </div>
+            <div class="card">
+                <h2>Einfach erklärt 🧠</h2>
+                <p id="simple-output" class="output" aria-label="Einfache Erklärung"></p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
