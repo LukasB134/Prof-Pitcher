@@ -1,8 +1,12 @@
+const cors = require("cors");
+
+
 require("dotenv").config();
 const express = require("express");
 const { OpenAI} = require("openai");
 
 const app = express();
+app.use(cors());
 const PORT = 3001;
 
 const openai = new OpenAI({
@@ -21,12 +25,14 @@ app.post("/api/translate", async (req, res) => {
 
     try {
         const response = await openai.chat.completions.create({
-            model: "gpt-4",
+            model: "gpt-3.5-turbo",
             messages: [
                 { role: "system", content: prompt }, 
                 { role: "user", content: text},
             ],
         });
+
+        console.log(" GPT-Antwort:", response.choices[0].message.content);
 
         res.json({result: response.choices[0].message.content});
     } catch (error) {
