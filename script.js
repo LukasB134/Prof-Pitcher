@@ -46,17 +46,28 @@ class ProfPitcher {
     }
     
     async translateText(text, type) {
-        // Simuliere API-Call oder implementiere deine Übersetzungslogik
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                if (type === 'genz') {
-                    resolve(this.generateGenzVersion(text));
-                } else {
-                    resolve(this.generateSimpleVersion(text));
-                }
-            }, 1500);
-        });
-    }
+     //   // Simuliere API-Call oder implementiere deine Übersetzungslogik
+       /////             resolve(this.generateGenzVersion(text));
+       //             resolve(this.generateSimpleVersion(text));
+         //       }
+          //  }, 1500);
+
+          const response = await fetch("http://localhost:3001/api/translate", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ text, type})
+          });
+
+          if(!response.ok) {
+            throw new Error("Fehler beim Abrufen der Übersetzung");
+          }
+
+          const data = await response.json();
+          return data.result;
+        }
+    
     
     generateGenzVersion(text) {
         // Beispiel-Logik für Gen Z Version
