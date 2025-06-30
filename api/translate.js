@@ -36,5 +36,6 @@ app.post("/api/translate", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(' Backend läuft unter http://localhost:${PORT}');
+    console.log(`Backend läuft unter http://localhost:${PORT}`);
+
 });
