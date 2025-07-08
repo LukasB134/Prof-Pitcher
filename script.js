@@ -52,7 +52,7 @@ class ProfPitcher {
          //       }
           //  }, 1500);
 
-          const response = await fetch("https://prof-pitcher.onrender.com", {
+          const response = await fetch("https://prof-pitcher.onrender.com/api/translate", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
